@@ -144,7 +144,7 @@ class LightGBM(BaseTransformer):
 
     def transform(self, X, **kwargs):
         prediction = self.estimator.predict(X)
-        return {'prediction': prediction}
+        return {'prediction': prediction, 'estimator': self.estimator, 'data': X}
 
     def load(self, filepath):
         self.estimator = joblib.load(filepath)
